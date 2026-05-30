@@ -370,6 +370,61 @@
         background-color: transparent !important;
       }
 
+      html.atmo-enabled [role="menu"],
+      html.atmo-enabled [role="dialog"],
+      html.atmo-enabled [role="listbox"],
+      html.atmo-enabled [role="tooltip"],
+      html.atmo-enabled [data-radix-popper-content-wrapper],
+      html.atmo-enabled [data-radix-menu-content],
+      html.atmo-enabled [data-radix-dialog-content],
+      html.atmo-enabled [data-side][data-align],
+      html.atmo-enabled [data-headlessui-state],
+      html.atmo-enabled [cmdk-root] {
+        position: relative;
+        z-index: 2147483646 !important;
+      }
+
+      html.atmo-enabled [role="menu"],
+      html.atmo-enabled [role="dialog"]:not([aria-hidden="true"]),
+      html.atmo-enabled [role="listbox"],
+      html.atmo-enabled [data-radix-menu-content],
+      html.atmo-enabled [data-radix-dialog-content],
+      html.atmo-enabled [data-radix-popper-content-wrapper] > *,
+      html.atmo-enabled [data-headlessui-state],
+      html.atmo-enabled [cmdk-root] {
+        background: rgba(255, 255, 255, 0.96) !important;
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        background-image: none !important;
+        color: #111827 !important;
+        border: 1px solid rgba(64, 91, 115, 0.18) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 22px 60px rgba(38, 73, 105, 0.28) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        opacity: 1 !important;
+      }
+
+      html.atmo-enabled [role="menu"] *,
+      html.atmo-enabled [role="dialog"] *,
+      html.atmo-enabled [role="listbox"] *,
+      html.atmo-enabled [data-radix-menu-content] *,
+      html.atmo-enabled [data-radix-dialog-content] *,
+      html.atmo-enabled [data-radix-popper-content-wrapper] *,
+      html.atmo-enabled [data-headlessui-state] *,
+      html.atmo-enabled [cmdk-root] * {
+        color: inherit;
+        text-shadow: none !important;
+      }
+
+      html.atmo-enabled [role="menu"] [role="menuitem"]:hover,
+      html.atmo-enabled [role="menu"] [role="menuitem"]:focus,
+      html.atmo-enabled [role="option"]:hover,
+      html.atmo-enabled [role="option"]:focus {
+        background: rgba(91, 150, 196, 0.14) !important;
+        background-color: rgba(91, 150, 196, 0.14) !important;
+        border-radius: 12px !important;
+      }
+
       html.atmo-enabled article,
       html.atmo-enabled [data-testid^="conversation-turn"] {
         background: transparent !important;
@@ -515,6 +570,16 @@
     if (!(element instanceof HTMLElement)) return true;
     if (element === root || root?.contains(element)) return true;
     if (element.closest("#atmo-wallpaper-root")) return true;
+    if (
+      element.matches(
+        '[role="menu"], [role="dialog"], [role="listbox"], [role="tooltip"], [data-radix-popper-content-wrapper], [data-radix-menu-content], [data-radix-dialog-content], [data-headlessui-state], [cmdk-root]'
+      ) ||
+      element.closest(
+        '[role="menu"], [role="dialog"], [role="listbox"], [role="tooltip"], [data-radix-popper-content-wrapper], [data-radix-menu-content], [data-radix-dialog-content], [data-headlessui-state], [cmdk-root]'
+      )
+    ) {
+      return true;
+    }
     if (element.closest("[data-testid='composer']")) return true;
     if (element.closest("textarea, input, select, button")) return true;
     if (element.matches("textarea, input, select, button, video, img, svg, canvas")) return true;
