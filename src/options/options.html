@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPT Atmosphere 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <h1>ChatGPT Atmosphere</h1>
+          <p>本地动态壁纸、早中晚夜切换、沉浸式半透明 ChatGPT 界面。</p>
+        </div>
+        <label class="switch">
+          <input id="enabled" type="checkbox" />
+          <span></span>
+        </label>
+      </header>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>壁纸库</h2>
+          <label class="upload">
+            上传图片 / 视频
+            <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm" multiple />
+          </label>
+        </div>
+        <div id="library" class="library"></div>
+        <p class="hint">媒体文件保存在浏览器本地 IndexedDB，不上传服务器。卸载扩展时可能丢失。</p>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>时间切换</h2>
+          <select id="mode">
+            <option value="schedule">按时间自动切换</option>
+            <option value="manual">固定使用一个壁纸</option>
+          </select>
+        </div>
+        <label class="manual-select">
+          固定壁纸
+          <select id="manualWallpaper"></select>
+        </label>
+        <div id="schedule" class="schedule"></div>
+      </section>
+
+      <section class="panel">
+        <h2>沉浸式外观</h2>
+        <div class="grid">
+          <label>
+            背景透明度
+            <input data-appearance="backgroundOpacity" type="range" min="0.2" max="1" step="0.01" />
+          </label>
+          <label>
+            背景模糊
+            <input data-appearance="blur" type="range" min="0" max="18" step="1" />
+          </label>
+          <label>
+            背景亮度
+            <input data-appearance="brightness" type="range" min="0.35" max="1.15" step="0.01" />
+          </label>
+          <label>
+            遮罩强度
+            <input data-appearance="overlayOpacity" type="range" min="0" max="0.85" step="0.01" />
+          </label>
+          <label>
+            聊天区域透明度
+            <input data-appearance="chatSurfaceOpacity" type="range" min="0" max="0.85" step="0.01" />
+          </label>
+          <label>
+            侧边栏透明度
+            <input data-appearance="sidebarOpacity" type="range" min="0.1" max="0.9" step="0.01" />
+          </label>
+          <label>
+            输入框透明度
+            <input data-appearance="inputOpacity" type="range" min="0.2" max="0.95" step="0.01" />
+          </label>
+          <label>
+            遮罩颜色
+            <input data-appearance="overlayColor" type="color" />
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>性能</h2>
+        <div class="checks">
+          <label><input id="pauseWhenHidden" type="checkbox" /> 页面不可见时暂停视频壁纸</label>
+          <label><input id="reduceAnimations" type="checkbox" /> 低动态模式</label>
+          <label><input id="dynamicPaused" type="checkbox" /> 暂停动态壁纸</label>
+        </div>
+      </section>
+
+      <section class="panel actions">
+        <button id="exportConfig" type="button">导出配置</button>
+        <label class="import">
+          导入配置
+          <input id="importConfig" type="file" accept="application/json" />
+        </label>
+        <button id="resetConfig" type="button">恢复默认</button>
+      </section>
+
+      <p id="status" class="status"></p>
+    </main>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "chatgpt-atmosphere",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "A Chrome/Edge MV3 extension that adds local immersive dynamic wallpapers to chatgpt.com.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

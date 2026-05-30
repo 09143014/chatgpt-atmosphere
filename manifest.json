@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Atmosphere",
+  "version": "0.2.0",
+  "description": "Immersive local dynamic wallpapers for ChatGPT, with time-based switching and privacy-first storage.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://chatgpt.com/*"],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["src/content/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "ChatGPT Atmosphere",
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_page": "src/options/options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/wallpapers/*"],
+      "matches": ["https://chatgpt.com/*"]
+    }
+  ]
+}
