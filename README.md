@@ -2,6 +2,14 @@
 
 ChatGPT Atmosphere 是一个 Chrome/Edge Manifest V3 扩展，用本地动态壁纸替换 `https://chatgpt.com/*` 的聊天背景，并支持按本地时间在早晨、中午、晚上、深夜自动切换。
 
+## 演示
+
+<video src="assets/demo/chatgpt-atmosphere-demo.mp4" controls muted playsinline width="900"></video>
+
+如果 GitHub 没有直接渲染视频，可以打开仓库内的演示文件：
+
+[assets/demo/chatgpt-atmosphere-demo.mp4](assets/demo/chatgpt-atmosphere-demo.mp4)
+
 ## 功能
 
 - 只支持 Chrome / Edge。
